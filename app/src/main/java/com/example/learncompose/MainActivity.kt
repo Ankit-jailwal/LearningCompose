@@ -12,8 +12,11 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.learncompose.ui.theme.LearnComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -55,6 +58,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     padding -> Column(modifier = Modifier.padding(padding)) {
                     Greeting(name = "Android!")
+                    ShowSwitch()
                 }
                 }
             }
@@ -70,6 +74,24 @@ fun Greeting(name: String) {
 @Composable
 fun Hey(name: String) {
     Text(text = "Ankit $name")
+}
+
+@Composable
+fun ShowSwitch() {
+    val flag = remember {
+        mutableStateOf(true)
+    }
+
+    Switch(
+        checked = flag.value,
+        onCheckedChange = {
+            flag.value = it
+        },
+        modifier = Modifier.run {
+            size(20.dp)
+            padding(100.dp)
+        }
+    )
 }
 
 @Preview(showBackground = true)
