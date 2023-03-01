@@ -8,17 +8,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.learncompose.components.DefaultTextField
+import com.example.learncompose.components.LoginButton
 import com.example.learncompose.ui.theme.LearnComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -59,7 +60,7 @@ class MainActivity : ComponentActivity() {
                 
                 ) {
                     padding -> Column(modifier = Modifier.padding(padding)) {
-                    LoginUi()
+                    AuthUI()
                 }
                 }
             }
@@ -90,7 +91,7 @@ fun LoginUi() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(10.dp,5.dp),
+            .padding(10.dp, 5.dp),
     ) {
 
         Text(
@@ -132,6 +133,43 @@ fun LoginUi() {
     }
 
 }
+
+@Composable
+fun AuthUI() {
+    
+    var email = remember {
+        mutableStateOf("")
+    }
+    
+    var password = remember {
+        mutableStateOf("")
+    }
+    
+    var rememberFlag = remember {
+        mutableStateOf(false)
+    }
+    
+    Column(
+        modifier = Modifier.fillMaxSize().padding(30.dp, 35.dp, 30.dp)
+    ) {
+        Text(
+            text = "SIGN UP",
+            modifier = Modifier.padding(bottom = 25.dp),
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = Color(0Xff4d4d4d)
+            )
+        
+        DefaultTextField(fieldName = "Email", email, 30.dp)
+        DefaultTextField(fieldName = "Password", password)
+
+        LoginButton(email = email, password = password)
+    }
+
+}
+
+
+
 @Composable
 fun ShowSwitch() {
     val flag = remember {
