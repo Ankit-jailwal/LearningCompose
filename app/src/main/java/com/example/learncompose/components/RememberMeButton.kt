@@ -22,8 +22,7 @@ fun RememberMeButton(flag: MutableState<Boolean>) {
             onCheckedChange = {
                 flag.value = !flag.value
             },
-            colors = CheckboxDefaults.colors(checkedColor = Color(0XFFed5684)),
-            modifier = Modifier.absoluteOffset((12).dp, 0.dp)
+            colors = CheckboxDefaults.colors(checkedColor = Color(0XFFed5684))
         )
 
         Text("Remember me?")
