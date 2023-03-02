@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.learncompose.components.DefaultTextField
 import com.example.learncompose.components.LoginButton
+import com.example.learncompose.components.RememberMeButton
 import com.example.learncompose.ui.theme.LearnComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -162,6 +163,8 @@ fun AuthUI() {
         
         DefaultTextField(fieldName = "Email", email, 30.dp)
         DefaultTextField(fieldName = "Password", password)
+
+        RememberMeButton(rememberFlag)
 
         LoginButton(email = email, password = password)
     }
