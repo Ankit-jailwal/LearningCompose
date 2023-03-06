@@ -166,7 +166,7 @@ fun AuthUI() {
 
         RememberMeButton(rememberFlag)
 
-        LoginButton(email = email, password = password)
+        LoginButton(email = email, password = password, remember = rememberFlag)
     }
 
 }

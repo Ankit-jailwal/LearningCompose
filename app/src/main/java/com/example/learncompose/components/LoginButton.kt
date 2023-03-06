@@ -15,11 +15,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LoginButton(email: MutableState<String>, password: MutableState<String>) {
+fun LoginButton(email: MutableState<String>, password: MutableState<String>, remember: MutableState<Boolean>) {
 
     OutlinedButton(
         onClick = {
-        Log.d("values","username: ${email.value} and password: ${password.value}") },
+        Log.d("values","username: ${email.value} and password: ${password.value} and remember flag: ${remember.value}") },
 
         modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
 
